@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W Shapes Based on In-Field Measurements</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fraction.js for decimal-to-fraction conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fraction.js/4.2.3/fraction.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="Logo.jpg" alt="Logo" class="logo">
+        <h2>Input as many measurements as you have.</h2>
+        <p>If you do not have all, we'll find the closest match.</p>
+        <p>Input as decimal or as fraction, no need to do both.</p>
+        <p>You can mix and match, decimals for some and fraction for some.</p>
+
+        <form id="measurementForm" onsubmit="processForm(event)">
+            <div class="input-group">
+                <label>Depth - d (in. decimal):</label>
+                <div class="input-container">
+                    <input type="text" id="depth_decimal" pattern="[0-9]*\.?[0-9]*" title="Enter a decimal number" oninput="toggleFields('depth')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Depth - d (in. fraction):</label>
+                <div class="input-container fraction">
+                    <input type="number" id="depth_inch" min="0" oninput="toggleFields('depth')">
+                    <input type="text" id="depth_fraction" pattern="[0-9]+/[0-9]+" title="Enter a fraction (e.g., 1/2)" oninput="toggleFields('depth')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Width - b_f (in. decimal):</label>
+                <div class="input-container">
+                    <input type="text" id="width_decimal" pattern="[0-9]*\.?[0-9]*" title="Enter a decimal number" oninput="toggleFields('width')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Width - b_f (in. fraction):</label>
+                <div class="input-container fraction">
+                    <input type="number" id="width_inch" min="0" oninput="toggleFields('width')">
+                    <input type="text" id="width_fraction" pattern="[0-9]+/[0-9]+" title="Enter a fraction (e.g., 1/2)" oninput="toggleFields('width')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Web Thickness - t_w (in. decimal):</label>
+                <div class="input-container">
+                    <input type="text" id="web_thickness_decimal" pattern="[0-9]*\.?[0-9]*" title="Enter a decimal number" oninput="toggleFields('web_thickness')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Web Thickness - t_w (in. fraction):</label>
+                <div class="input-container fraction">
+                    <input type="number" id="web_thickness_inch" min="0" oninput="toggleFields('web_thickness')">
+                    <input type="text" id="web_thickness_fraction" pattern="[0-9]+/[0-9]+" title="Enter a fraction (e.g., 1/2)" oninput="toggleFields('web_thickness')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Flange Thickness - t_f (in. decimal):</label>
+                <div class="input-container">
+                    <input type="text" id="flange_thickness_decimal" pattern="[0-9]*\.?[0-9]*" title="Enter a decimal number" oninput="toggleFields('flange_thickness')">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Flange Thickness - t_f (in. fraction):</label>
+                <div class="input-container fraction">
+                    <input type="number" id="flange_thickness_inch" min="0" oninput="toggleFields('flange_thickness')">
+                    <input type="text" id="flange_thickness_fraction" pattern="[0-9]+/[0-9]+" title="Enter a fraction (e.g., 1/2)" oninput="toggleFields('flange_thickness')">
+                </div>
+            </div>
+            <button type="submit">Find W Shape</button>
+        </form>
+
+        <div id="results" style="display: none;">
+            <h2>Measured Values:</h2>
+            <table id="measuredTable"></table>
+            <h2>Closest Match:</h2>
+            <table id="closestTable"></table>
+            <h2>Other Close Matches:</h2>
+            <table id="othersTable"></table>
+            <button onclick="resetForm()">Close and Create Another Project</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
