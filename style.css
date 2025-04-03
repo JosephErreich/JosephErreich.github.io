@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Center-align logo and instructions */
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 400px;
+    height: 115px;
+}
+
+h2, p {
+    margin: 10px 0;
+}
+
+.input-group {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between; /* Spread label and inputs */
+    align-items: center;
+    max-width: 450px; /* Reduced from 600px to bring labels and inputs closer */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group label {
+    text-align: left; /* Left-align labels */
+    width: 300px; /* Kept at 300px to fit longest label */
+    white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.input-container {
+    display: flex;
+    justify-content: flex-end; /* Right-align inputs */
+    width: 200px; /* Fixed width for input area */
+}
+
+input {
+    padding: 5px;
+    font-size: 12px;
+    width: 120px; /* Consistent width for decimal inputs */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.input-container.fraction {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+}
+
+.input-container.fraction input[type="number"],
+.input-container.fraction input[type="text"] {
+    width: 58px; /* 58px + 58px + 4px margin = 120px total */
+    margin-left: 4px; /* Reduced from 5px to fit precisely */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.input-container.fraction input[type="number"] {
+    margin-left: 0; /* No margin on the first input */
+}
+
+button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: {{ StonecrestGreen }};
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid {{ StonecrestGrey }};
+}
+
+th {
+    background-color: {{ StonecrestGrey }};
+    color: {{ StonecrestGreen }};
+}
